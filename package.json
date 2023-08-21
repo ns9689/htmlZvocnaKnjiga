@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jquery": "^3.7.0",
+    "tablednd": "^1.0.5"
+  }
+}
