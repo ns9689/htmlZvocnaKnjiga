@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
-    <script src="knjiga.js" type="text/javascript"></script>
+    <!--<script src="knjiga.js" type="text/javascript"></script>-->
     <script src="node_modules/tablednd/js/jquery.tablednd.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
@@ -33,12 +33,28 @@
 <div class="col text-center p-5">
     <h2>Naslov</h2>
 </div>
+<div class="table-container">
+    <table class="table table-hover" id="tableDnD">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Vrstica</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+</div>
+
 
 <div class="container">
+
     <div class="row">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for sentence...">
         <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <table id="tableDnD" class="table table-hover">
+        <div class="col-sm-12">
+            <table id="tableDnD1" class="table table-hover" data-total-field="count">
                 <div id="debugArea" ></div>
                 <thead>
                 <tr>
@@ -48,88 +64,135 @@
                 </thead>
 
                 <tbody>
-                <tr id="1" class="table-success">
+                <tr id="1" class="table-success search">
                     <th scope="row">1</th>
                     <td>
                         <table class="table">
                             <tbody>
                                 <tr data-toggle="collapse" class="accordion-toggle" data-target="#demo10" aria-expanded="false">
                                     <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</td>
-                                    <td>U$8.00000 </td>
+                                    <td><button class="btn"><i class="bi bi-play-circle"></i></button></td> <!--ce je ze izbrano-->
+                                    <td><button class="btn"><i class="bi bi-pencil-square"></i></button></td>
                                 </tr>
 
                                 <tr>
                                     <td colspan="12" class="hiddenRow">
                                         <div class="accordion-body collapse in" id="demo10" aria-expanded="true" style="">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                <tr>
-                                                    <td>
-                                                        <div class="container">
-                                                        <div class="row">
-                                                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-                                                                <p class="titles">Bird Wings</p>
-                                                                <audio class="audio controls">
-                                                                    <source src="http://audiosoundclips.com/wp-content/uploads/2011/12/Dogbark.mp3" type="audio/mpeg">
-                                                                    Your browser does not support the audio element.
-                                                                </audio>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>item 1</th>
-                                                    <th>item 2</th>
-                                                    <th>item 3 </th>
-                                                    <th>item 4</th>
-                                                    <th>item 5</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                                </thead>
+                                            <table class="table">
                                                 <tbody>
                                                 <tr>
-                                                    <td>item 1</td>
-                                                    <td>item 2</td>
-                                                    <td>item 3</td>
-                                                    <td>item 4</td>
-                                                    <td>item 5</td>
                                                     <td>
-                                                        <a href="#" class="btn btn-default btn-sm">
-                                                            <i class="glyphicon glyphicon-cog"></i>
-                                                        </a>
+                                                        <audio controls>
+                                                            <source src="horse.ogg" type="audio/ogg">
+                                                            <source src="horse.mp3" type="audio/mpeg">
+                                                            Your browser does not support the audio element.
+                                                        </audio>
+                                                    </td>
+                                                    <td>
+                                                        <i class="bi bi-pen"></i>
+                                                        <i class="bi bi-file-play"></i>
+                                                        <i class="bi-bookmark-star"></i>
+                                                        <i class="bi-bookmark-x"></i>
+                                                        <i class="bi bi-trash"></i>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa-light fa-circle-0"></i>
+                                                        <i class="bi bi-1-circle"></i>
+                                                        <i class="bi bi-2-circle"></i>
+                                                        <i class="bi bi-3-circle"></i>
+                                                        <i class="bi bi-4-circle"></i>
+                                                        <i class="bi bi-5-circle"></i>
+                                                        <i class="bi bi-6-circle"></i>
+                                                        <i class="bi bi-7-circle"></i>
+                                                        <i class="bi bi-8-circle"></i>
+                                                        <i class="bi bi-9-circle"></i>
                                                     </td>
                                                 </tr>
+
                                                 </tbody>
                                             </table>
 
                                         </div>
                                     </td>
                                 </tr>
-
-
-
                             </tbody>
                         </table>
                     </td>
                 </tr>
 
-                <tr  id="2">
-                    <th scope="row">2</th>
+                <tr  id="2" class="search accordion-toggle">
+                    <th scope="row" data-field="name">2</th>
                     <td>Jacob</td>
                 </tr>
 
-                <tr  id="3" class="table-secondary">
+                <tr  id="3" class="table-secondary search accordion-toggle">
                     <th scope="row">3</th>
                     <td colspan="2">Larry the Bird</td>
                 </tr>
+
+
+                <tr id="4" class="table-success search">
+                    <th scope="row">4</th>
+                    <td>
+                        <table class="table">
+                            <tbody>
+                            <tr data-toggle="collapse" class="accordion-toggle" data-target="#demo10" aria-expanded="false">
+                                <td><textarea class="form-control" id="textAreaField" rows="1" oninput="disableButtons()">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</textarea></td>
+                                <td><button class="btn"><i class="bi bi-play-circle"></i></button></td> <!--ce je ze izbrano-->
+                                <td><button class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="12" class="hiddenRow">
+                                    <div class="accordion-body collapse in" id="demo10" aria-expanded="true" style="">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <audio controls>
+                                                        <source src="horse.ogg" type="audio/ogg">
+                                                        <source src="horse.mp3" type="audio/mpeg">
+                                                        Your browser does not support the audio element.
+                                                    </audio>
+                                                </td>
+                                                <td>
+                                                    <i class="bi bi-pen"></i>
+                                                    <i class="bi bi-file-play"></i>
+                                                    <i class="bi-bookmark-star"></i>
+                                                    <i class="bi-bookmark-x"></i>
+                                                    <i class="bi bi-trash"></i>
+                                                </td>
+                                                <td>
+                                                    <i class="fa-light fa-circle-0"></i>
+                                                    <i class="bi bi-1-circle"></i>
+                                                    <i class="bi bi-2-circle"></i>
+                                                    <i class="bi bi-3-circle"></i>
+                                                    <i class="bi bi-4-circle"></i>
+                                                    <i class="bi bi-5-circle"></i>
+                                                    <i class="bi bi-6-circle"></i>
+                                                    <i class="bi bi-7-circle"></i>
+                                                    <i class="bi bi-8-circle"></i>
+                                                    <i class="bi bi-9-circle"></i>
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
                 </tbody>
             </table>
-            <p id="title">
-                <label for="textAreaField" class="form-label">Vnesi besedilo</label>
-                <span id="voice-name"><small>Govorec: - </small></span>
-            </p>
-            <textarea class="form-control" id="textAreaField" rows="10" oninput="disableButtons()"></textarea>
+
+            <div class="pagination" id="pagination">
+                <!-- Pagination links will be dynamically added here -->
+            </div>
+
             <p></p>
             <button type="button" class="btn btn-primary" disabled="" id="btn-normalize" onclick="normalizeText($('#textAreaField')[0].value)">Normaliziraj</button>
             <button type="button" class="btn btn-primary" disabled="" id="btn-prepare" onclick="prepareText($('#textAreaField')[0].value)">Naglasi</button>
@@ -212,37 +275,6 @@
                         <script>
                             checkServices()
                         </script>
-
-                        <hr>
-
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
-                        <div>
-                            <!--<form onsubmit="getToken(event)"> -->
-                            <form>
-                                <div class="form-group" id="username">
-                                    <label for="username-input-box">Uporabniško ime</label>
-                                    <input type="username" class="form-control form-control-sm error" id="username-input-box" placeholder="Vnesi uporabniško ime">
-                                </div>
-                                <br>
-                                <div class="form-group" id="password">
-                                    <label for="password-input-box">Geslo</label>
-                                    <input type="password" class="form-control form-control-sm error" id="password-input-box" placeholder="Vnesi geslo">
-                                </div>
-                            </form>
-                            <br>
-
-                            <button type="submit" class="btn btn-primary" id="btn-login" onclick="login()">Prijava</button>
-                            <button type="submit" class="btn btn-secondary" id="btn-logout" onclick="logout()" disabled="">Odjava</button>
-
-                            <br>
-                            <br>
-                            <div class="alert alert-danger d-none" id="alert-box-login" role="alert"></div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -251,18 +283,6 @@
     </div>
 </div>
 
-<!---audio-->
-<!--
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <audio controls class="embed-responsive-item" id="audio-controls">
-                <source id="audio-element" src="">
-            </audio>
-        </div>
-    </div>
-</div>
--->
 
+<script src="knjiga.js"></script>
 </body>

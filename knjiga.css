@@ -36,6 +36,9 @@ a.logo:hover {
 tr.hide-table-padding td {
     padding: 0;
 }
+td.hide-table-padding td {
+    padding: 0;
+}
 
 .inProgress {
 }
@@ -43,3 +46,5 @@ tr.hide-table-padding td {
 .inProgress {
     background-color: grey;
 }
+
+.bi-1-circle-fill::before { content: "\f796"; }
