@@ -47,7 +47,7 @@ const tableBody = document.querySelector('#tableDnD tbody');
 const rows = [
     { id: 1, class: 'table-success search', text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', },
     { id: 2, class: 'table-secondary search', text:'lallalal' },
-    { id: 3, class: 'search', text:'oti' },
+    { id: 3, class: 'search', text:'Midva sva na morju' },
     // Add more rows here
 ];
 
