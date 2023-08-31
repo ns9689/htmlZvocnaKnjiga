@@ -40,11 +40,16 @@ td.hide-table-padding td {
     padding: 0;
 }
 
+.width {
+    width: 30%;
+}
+
 .inProgress {
 }
 
 .inProgress {
     background-color: grey;
 }
+
 
 .bi-1-circle-fill::before { content: "\f796"; }

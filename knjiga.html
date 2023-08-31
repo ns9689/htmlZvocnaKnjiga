@@ -25,10 +25,26 @@
 
 <body style="">
 <!---Header ****************************************************** --->
-<div class="container-fluid pl-2 pt-2 pb-2 bg-primary text-white text-left">
-    © 2023 <br>
-    <small>verzija: 1.0.0, avgust 2023</small>
-</div>
+<nav class="bg-primary container-fluid navbar navbar-expand-lg navbar-light text-white">
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                © 2023 </br>
+                <small>verzija: 1.0.0, avgust 2023</small>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./projekti.html">Projekti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./login.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./knjiga.html">Knjiga template</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <div class="col text-center p-5">
     <h2>Naslov</h2>
@@ -60,11 +76,8 @@
             </div>
 
             <p></p>
-            <button type="button" class="btn btn-primary" disabled="" id="btn-normalize" onclick="normalizeText($('#textAreaField')[0].value)">Normaliziraj</button>
-            <button type="button" class="btn btn-primary" disabled="" id="btn-prepare" onclick="prepareText($('#textAreaField')[0].value)">Naglasi</button>
-            <button type="button" class="btn btn-primary" disabled="" id="btn-synthesise" onclick="getAudio()">Sintetiziraj</button>
-            <button type="button" class="btn btn-primary" disabled="" id="btn-play" onclick="playSound()">Predvajaj</button>
-            <button type="button" class="btn btn-primary" disabled="" id="btn-download" onclick="downloadFile()">Shrani</button>
+            <button type="button" class="btn btn-primary" id="btn-normalize" onclick="normalizeText($('#textAreaField')[0].value)">Shrani projekt</button>
+            <button type="button" class="btn btn-success" id="btn-prepare" onclick="prepareText($('#textAreaField')[0].value)">Dokončaj projekt</button> <!-- še 1x potrdi plus možnost preklica-->
 
             <div class="float-end">
                 <button class="btn btn-secondary" id="btn-settings" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"><i class="bi bi-gear"></i> Nastavitve</button>

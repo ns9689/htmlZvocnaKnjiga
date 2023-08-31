@@ -2,7 +2,10 @@ $(document).ready(function() {
     $("#tableDnD").tableDnD({
         onDragClass: "myDragClass",
         onDrop: function(table, row) {
+            console.log(table);
             var rows = table.tBodies[0].rows;
+            console.log(rows);
+            console.log(row);
             var debugStr = "Row dropped was "+row.id+". New order: ";
             for (var i=0; i<rows.length; i++) {
                 debugStr += rows[i].id+" ";
@@ -12,7 +15,18 @@ $(document).ready(function() {
             $("#debugArea").html(debugStr);
         },
         onDragStart: function(table, row) {
-            $("#debugArea").html("Started dragging row "+row.id);
+            console.log(row);
+            console.log(document.querySelector('#tableDnD tbody').childNodes[0]);
+            for (let i = 0; i < 3; i++) {
+                i= i.toString();
+                console.log(document.getElementById(i));
+            }
+
+            console.log(row.attributes[0].value);
+            $("#debugArea").html("Started dragging row "+row.attributes[0].value);
+
+            var table = document.getElementById("tableDnD");
+
         }
     });
 });
@@ -45,9 +59,9 @@ function myFunction() {
 
 const tableBody = document.querySelector('#tableDnD tbody');
 const rows = [
-    { id: 1, class: 'table-success search', text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', },
-    { id: 2, class: 'table-secondary search', text:'lallalal' },
-    { id: 3, class: 'search', text:'Midva sva na morju' },
+    { id: 1, row: 0, class: 'table-success search', text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', },
+    { id: 2, row: 1, class: 'table-secondary search', text:'lallalal' },
+    { id: 3, row: 2, class: 'search', text:'Na morju je lepo' },
     // Add more rows here
 ];
 
@@ -65,8 +79,8 @@ function generateRow(rowData) {
                             <tbody>
                                 <tr data-toggle="collapse" class="accordion-toggle" data-target="#${rowData.id}" aria-expanded="false">
                                     <td>${rowData.text}</td>
-                                    <td><button class="btn"><i class="bi bi-play-circle"></i></button></td> <!--ce je ze izbrano-->
-                                    <td><button class="btn"><i class="bi bi-pencil-square"></i></button></td>
+                                    <td width="15%"><button class="btn"><i class="bi bi-play-circle"></i></button></td> <!--ce je ze izbrano-->
+                                    <td width="15%"><button class="btn"><i class="bi bi-pencil-square"></i></button></td>
                                 </tr>
 
                                 <tr>
